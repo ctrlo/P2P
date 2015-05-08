@@ -9,12 +9,16 @@ use P2P;
 
 use Plack::Builder;
 
-use Config::INI::Reader;
+# Code left here in case it's needed. The original idea was
+# to run the RFC2617 authentication here, as part of Starman.
+# But it turned out easier to use Apache.
 
-my $config = Config::INI::Reader->read_file('config.ini');
+# use Config::INI::Reader;
+
+# my $config = Config::INI::Reader->read_file('/srv/P2P/config.ini');
 
 builder {
-    enable "Auth::Basic", authenticator => \&authen_cb;
+#    enable "Auth::Basic", authenticator => \&authen_cb;
     P2P->to_app;
 };
  
