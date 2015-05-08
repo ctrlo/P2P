@@ -22,10 +22,10 @@ builder {
     P2P->to_app;
 };
  
-sub authen_cb {
-    my($username, $password, $env) = @_;
-    my $rfc2617 = $config->{RFC2617};
-    return $username eq $rfc2617->{username}
-      && $password eq $rfc2617->{password};
-}
+#sub authen_cb {
+#    my($username, $password, $env) = @_;
+#    my $rfc2617 = $config->{RFC2617};
+#    return $username eq $rfc2617->{username}
+#      && $password eq $rfc2617->{password};
+#}
 
