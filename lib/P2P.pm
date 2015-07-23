@@ -13,8 +13,8 @@ get '/' => sub {
 any '/receive' => sub {
     my $dump_dir = config->{p2p}->{request_dump_dir};
     my ($fh, $filename) = tempfile(DIR => $dump_dir);
-    my %params = params;
-    print $fh Dumper \%params;
+    my $data = request->body;
+    print $fh $data;
 
     Mail::Message->build(
         To       => 'info@ctrlo.com',
