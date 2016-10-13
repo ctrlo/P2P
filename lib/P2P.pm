@@ -47,7 +47,7 @@ sub _p2pmsg
 
     my $prefix = config->{p2p}->{prefix};
 
-    my $id = request_header 'X-CPF-SUPPLIER-UID';
+    my $id = request_header 'UID';
 
     if ($id)
     {
@@ -98,9 +98,9 @@ sub _check_id
 {   my $id = shift;
     my $error;
     defined $id
-        or $error = _error(400, "Missing header X-CPF-SUPPLIER-UID");
+        or $error = _error(400, "Missing header UID");
     $error || $id
-        or $error = _error(400, "Required message ID must be specified in header X-CPF-SUPPLIER-UID");
+        or $error = _error(400, "Required message ID must be specified in header UID");
     $error;
 }
 
